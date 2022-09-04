@@ -1,4 +1,5 @@
 import numpy as np
+import matesRS
 
 DIR_LIGHT = 0
 POINT_LIGHT = 1

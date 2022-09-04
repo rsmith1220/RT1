@@ -146,14 +146,20 @@ class Raytracer(object):
                     shadow_intensity = 1
 
 
-                dirLightColor = np.add(dirLightColor, diffuseColor * (1 - shadow_intensity))
+                dirLightColor = matesRS.add(dirLightColor, diffuseColor * (1 - shadow_intensity))
 
             elif light.lightType == 2: # ambient light
-                ambLightColor = np.array(light.color) * light.intensity
-
+                ambLightColor = []
+                for i in light.color:
+                    float(i)
+                    float(light.intensity)
+                    a=i*light.intensity
+                    ambLightColor.append(a)
         finalColor = dirLightColor + ambLightColor
 
-        finalColor *= objectColor
+
+        # finalColor *= objectColor
+        finalColor= matesRS.listas(finalColor,objectColor)
 
         r = min(1, finalColor[0])
         g = min(1, finalColor[1])
@@ -173,14 +179,14 @@ class Raytracer(object):
                 Py = ((y + 0.5 - self.vpY) / self.vpHeight) * 2 - 1
 
                 # Proyeccion
-                t = tan((self.fov * np.pi / 180) / 2) * self.nearPlane
+                t = tan((self.fov * 3.1415926535897932384626433 / 180) / 2) * self.nearPlane
                 r = t * self.vpWidth / self.vpHeight
 
                 Px *= r
                 Py *= t
 
                 direction = V3(Px, Py, -self.nearPlane)
-                direction = direction / np.linalg.norm(direction)
+                direction = matesRS.normal(direction)
 
                 rayColor = self.cast_ray(self.camPosition, direction)
 

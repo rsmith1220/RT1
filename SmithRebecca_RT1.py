@@ -8,9 +8,9 @@ height = 1024
 
 # Materiales
 
-brick = Material(diffuse = (0.8, 0.3, 0.3))
-stone = Material(diffuse = (0.4, 0.4, 0.4))
-grass = Material(diffuse = (0.3, 1, 0.3))
+eyes = Material(diffuse = (0, 0, 0))
+snow = Material(diffuse = (1, 1, 1))
+eyes1 = Material(diffuse = (0, 0, 0.2))
 
 
 
@@ -19,10 +19,17 @@ rtx = Raytracer(width, height)
 rtx.lights.append( AmbientLight( ))
 rtx.lights.append( DirectionalLight(direction = (-1,-1,-1) ))
 
+#cuerpo
+rtx.scene.append( Sphere(V3(0,2.5,-10), 1, snow))
+rtx.scene.append( Sphere(V3(0,0.5,-10), 1.3, snow))
+rtx.scene.append( Sphere(V3(0,-2.3,-10), 1.7, snow))
 
-rtx.scene.append( Sphere(V3(0,0,-10), 2, brick)  )
-rtx.scene.append( Sphere(V3(-4,-2,-15), 1.5, stone)  )
-rtx.scene.append( Sphere(V3(2,2,-8), 0.2, grass)  )
+#ojos
+rtx.scene.append( Sphere(V3(0.3,1.4,-5), 0.08, eyes))
+rtx.scene.append( Sphere(V3(-0.3,1.4,-5), 0.08, eyes))
+
+rtx.scene.append( Sphere(V3(0.3,1.4,-7), 0.1, eyes1))
+rtx.scene.append( Sphere(V3(-0.3,1.4,-7), 0.1, eyes1))
 
 
 rtx.glRender()

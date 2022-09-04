@@ -100,3 +100,9 @@ def normal(v):
         l=i/h
         final.append(l)
     return final
+
+def listas(l1,l2):
+    Result = []
+    for i1, i2 in zip(l1, l2):
+        Result.append(i1*i2)
+    return Result

@@ -23,9 +23,35 @@ class Sphere(object):
         self.material = material
 
     def ray_intersect(self, orig, dir):
-        L = matesRS.subtract(self.center, orig)
-        tca = matesRS.dot(L, dir)
+        L = matesRS.subtract(self.center, orig)#lista
+        tca = matesRS.dot(L, dir)#numero
+
         d = (np.linalg.norm(L) ** 2 - tca ** 2) ** 0.5
+        # print(d)
+
+        # lnormal=matesRS.normal(L)
+
+        # lcuadro=[]
+        # for i in lnormal:
+        #     a=i**2
+        #     lcuadro.append(a)
+
+        # tcacuadro=tca**2
+
+        # ltca=[]
+        # for i in lcuadro:
+        #     a=i-tcacuadro
+        #     ltca.append(a)
+        # print(ltca )
+
+        # dd=[]
+        # for i in ltca:
+        #     a=i**0.5
+        #     dd.append(a)
+            
+
+
+        # d = (ltca) ** 0.5
 
         if d > self.radius:
             return None
@@ -41,7 +67,14 @@ class Sphere(object):
             return None
         
         # P = O + t0 * D
-        P = np.add(orig, t0 * np.array(dir))
+        todir = []
+        for i in dir:
+            float(i)
+            a=i*t0
+            todir.append(a)
+
+
+        P = matesRS.add(orig, todir)
         normal = matesRS.subtract(P, self.center)
         normal = matesRS.normal(normal)
 
