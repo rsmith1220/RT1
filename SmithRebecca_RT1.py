@@ -10,7 +10,8 @@ height = 1024
 
 eyes = Material(diffuse = (0, 0, 0))
 snow = Material(diffuse = (1, 1, 1))
-eyes1 = Material(diffuse = (0, 0, 0.2))
+eyes1 = Material(diffuse = (0.682, 0.776, 0.812))
+nose = Material(diffuse = (1, 0.647, 0))
 
 
 
@@ -28,9 +29,15 @@ rtx.scene.append( Sphere(V3(0,-2.3,-10), 1.7, snow))
 rtx.scene.append( Sphere(V3(0.3,1.4,-5), 0.08, eyes))
 rtx.scene.append( Sphere(V3(-0.3,1.4,-5), 0.08, eyes))
 
-rtx.scene.append( Sphere(V3(0.3,1.4,-7), 0.1, eyes1))
-rtx.scene.append( Sphere(V3(-0.3,1.4,-7), 0.1, eyes1))
+rtx.scene.append( Sphere(V3(0.4,2,-7), 0.2, eyes1))
+rtx.scene.append( Sphere(V3(-0.4,2,-7), 0.2, eyes1))
 
+
+#nariz
+rtx.scene.append( Sphere(V3(0,1.3,-5), 0.08, nose))
+
+#Boca
+rtx.scene.append( Sphere(V3(0,1,-5), 0.08, eyes))
 
 rtx.glRender()
 
