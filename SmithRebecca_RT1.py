@@ -18,7 +18,7 @@ nose = Material(diffuse = (1, 0.647, 0))
 rtx = Raytracer(width, height)
 
 rtx.lights.append( AmbientLight( ))
-rtx.lights.append( DirectionalLight(direction = (-1,-1,-1) ))
+rtx.lights.append( DirectionalLight(direction = (1,-1,-1) ))
 
 #cuerpo
 rtx.scene.append( Sphere(V3(0,2.5,-10), 1, snow))
@@ -37,7 +37,16 @@ rtx.scene.append( Sphere(V3(-0.4,2,-7), 0.2, eyes1))
 rtx.scene.append( Sphere(V3(0,1.3,-5), 0.08, nose))
 
 #Boca
-rtx.scene.append( Sphere(V3(0,1,-5), 0.08, eyes))
+rtx.scene.append( Sphere(V3(0,1,-5), 0.06, eyes))
+rtx.scene.append( Sphere(V3(0.3,1.1,-5), 0.06, eyes))
+rtx.scene.append( Sphere(V3(-0.3,1.1,-5), 0.06, eyes))
+rtx.scene.append( Sphere(V3(0.2,1,-5), 0.06, eyes))
+rtx.scene.append( Sphere(V3(-0.2,1,-5), 0.06, eyes))
+
+#Botones
+rtx.scene.append( Sphere(V3(0,-0.1,-5), 0.2, eyes))
+rtx.scene.append( Sphere(V3(0,-0.6,-5), 0.15, eyes))
+rtx.scene.append( Sphere(V3(0,-0.09,-5), 0.08, eyes))
 
 rtx.glRender()
 
