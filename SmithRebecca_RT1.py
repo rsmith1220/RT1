@@ -12,6 +12,7 @@ eyes = Material(diffuse = (0, 0, 0))
 snow = Material(diffuse = (1, 1, 1))
 eyes1 = Material(diffuse = (0.682, 0.776, 0.812))
 nose = Material(diffuse = (1, 0.647, 0))
+rocks=Material(diffuse=(0.4,0.4,0.4))
 
 
 
@@ -44,9 +45,9 @@ rtx.scene.append( Sphere(V3(0.2,1,-5), 0.06, eyes))
 rtx.scene.append( Sphere(V3(-0.2,1,-5), 0.06, eyes))
 
 #Botones
-rtx.scene.append( Sphere(V3(0,-0.1,-5), 0.2, eyes))
-rtx.scene.append( Sphere(V3(0,-0.6,-5), 0.15, eyes))
-rtx.scene.append( Sphere(V3(0,-0.09,-5), 0.08, eyes))
+rtx.scene.append( Sphere(V3(0,0.4,-5), 0.08, rocks))
+rtx.scene.append( Sphere(V3(0,-0.3,-5), 0.15,rocks))
+rtx.scene.append( Sphere(V3(0,-0.8,-5), 0.2, rocks))
 
 rtx.glRender()
 
